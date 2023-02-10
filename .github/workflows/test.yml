@@ -1,0 +1,14 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  fast:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
+  slow:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - run: sleep 60
